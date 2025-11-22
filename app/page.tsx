@@ -1,28 +1,12 @@
 import Image from "next/image";
 import Experience from "./components/Experience";
+import Navbar from "./components/Navbar";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#f5f5f7] dark:bg-[#000000] text-[#1d1d1f] dark:text-[#f5f5f7] font-sans selection:bg-[#0071e3] selection:text-white">
       {/* Apple-style Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/70 dark:bg-[#1d1d1f]/70 border-b border-zinc-200/50 dark:border-zinc-800/50 transition-all duration-500">
-        <div className="max-w-[980px] mx-auto px-6 h-12 flex items-center justify-between text-xs font-medium tracking-wide">
-          <div className="text-lg font-semibold tracking-tight cursor-pointer opacity-90 hover:opacity-100 transition-opacity">
-            Jirawat<span className="text-[#86868b]">Damung</span>
-          </div>
-          <div className="hidden md:flex gap-8 text-[#1d1d1f]/80 dark:text-[#f5f5f7]/80">
-            {["Overview", "Experience", "Skills", "Connect"].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="hover:text-[#0071e3] dark:hover:text-[#2997ff] transition-colors duration-300"
-              >
-                {item}
-              </a>
-            ))}
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       <main className="pt-12">
         {/* Hero Section - Product Reveal Style */}
