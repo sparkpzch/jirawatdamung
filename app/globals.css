@@ -12,6 +12,9 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+/* Tailwind v4 detects dark mode automatically, but we need to ensure it respects the 'class' strategy if configured or just relies on the .dark class presence */
+
 .dark {
   --background: #0a0a0a;
   --foreground: #ededed;
@@ -41,13 +44,11 @@ body {
   background: #71717a;
 }
 
-@media (prefers-color-scheme: dark) {
-  ::-webkit-scrollbar-thumb {
-    background: #52525b;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #71717a;
-  }
+.dark ::-webkit-scrollbar-thumb {
+  background: #52525b;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #71717a;
 }
 
 @keyframes fadeInUp {

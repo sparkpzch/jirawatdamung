@@ -53,7 +53,7 @@ export default function Experience() {
       <div className="relative z-10 w-full max-w-[1400px] px-6 flex flex-col items-center">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tighter bg-clip-text text-transparent bg-linear-to-b from-white to-white/40">
+          <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-zinc-900 dark:text-white">
             {t.title}
           </h2>
         </div>
