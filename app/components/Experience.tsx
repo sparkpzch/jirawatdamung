@@ -43,7 +43,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="min-h-screen bg-black text-[#f5f5f7] relative flex flex-col items-center justify-center py-20 overflow-hidden"
+      className="min-h-screen bg-[#f5f5f7] dark:bg-black text-[#1d1d1f] dark:text-[#f5f5f7] relative flex flex-col items-center justify-center py-20 overflow-hidden"
     >
       {/* Background Ambience */}
       <div className="absolute inset-0 overflow-hidden">
@@ -101,7 +101,7 @@ export default function Experience() {
                   if (isPrev) prevSlide();
                   if (isNext) nextSlide();
                 }}
-                className={`absolute w-full max-w-4xl aspect-video md:aspect-21/9 bg-zinc-900/50 rounded-[3rem] border border-white/10 overflow-hidden backdrop-blur-xl shadow-2xl transition-all duration-700 ease-in-out ${transformClass}`}
+                className={`absolute w-full max-w-4xl aspect-video md:aspect-21/9 bg-white/80 dark:bg-zinc-900/50 rounded-[3rem] border border-zinc-200 dark:border-white/10 overflow-hidden backdrop-blur-xl shadow-2xl transition-all duration-700 ease-in-out ${transformClass}`}
               >
                 {/* Content Container */}
                 <div className="absolute inset-0 flex items-center justify-between p-8 md:p-20">
@@ -116,10 +116,10 @@ export default function Experience() {
                     >
                       {exp.year}
                     </div>
-                    <h3 className="text-4xl md:text-6xl font-bold leading-tight">
+                    <h3 className="text-4xl md:text-6xl font-bold leading-tight text-zinc-900 dark:text-white">
                       {exp.title}
                     </h3>
-                    <p className="text-lg md:text-xl text-zinc-400 leading-relaxed">
+                    <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed">
                       {exp.description}
                     </p>
                   </div>
@@ -127,7 +127,7 @@ export default function Experience() {
                   {/* Image Content (Right Side) */}
                   <div className="absolute right-0 top-0 bottom-0 w-2/3 md:w-1/2 z-10 opacity-40 md:opacity-100 mask-image-linear-gradient">
                     <div className="relative w-full h-full">
-                      <div className="absolute inset-0 bg-linear-to-l from-transparent via-transparent to-zinc-900/90 z-20" />
+                      <div className="absolute inset-0 bg-linear-to-l from-transparent via-transparent to-white/90 dark:to-zinc-900/90 z-20" />
                       <Image
                         src={exp.image}
                         alt={exp.title}
@@ -144,11 +144,11 @@ export default function Experience() {
           {/* Navigation Buttons (Floating) */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 md:left-10 z-30 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center hover:bg-white/20 transition-all hover:scale-110 active:scale-95"
+            className="absolute left-4 md:left-10 z-30 w-12 h-12 rounded-full bg-black/5 dark:bg-white/10 backdrop-blur-md flex items-center justify-center hover:bg-black/10 dark:hover:bg-white/20 transition-all hover:scale-110 active:scale-95"
             aria-label="Previous slide"
           >
             <svg
-              className="w-6 h-6 text-white"
+              className="w-6 h-6 text-zinc-900 dark:text-white"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -164,11 +164,11 @@ export default function Experience() {
 
           <button
             onClick={nextSlide}
-            className="absolute right-4 md:right-10 z-30 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center hover:bg-white/20 transition-all hover:scale-110 active:scale-95"
+            className="absolute right-4 md:right-10 z-30 w-12 h-12 rounded-full bg-black/5 dark:bg-white/10 backdrop-blur-md flex items-center justify-center hover:bg-black/10 dark:hover:bg-white/20 transition-all hover:scale-110 active:scale-95"
             aria-label="Next slide"
           >
             <svg
-              className="w-6 h-6 text-white"
+              className="w-6 h-6 text-zinc-900 dark:text-white"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -190,8 +190,8 @@ export default function Experience() {
                 onClick={() => setCurrentIndex(idx)}
                 className={`h-2 rounded-full transition-all duration-500 ease-out ${
                   idx === currentIndex
-                    ? "bg-white w-10"
-                    : "bg-white/40 w-2 hover:bg-white/80"
+                    ? "bg-zinc-900 dark:bg-white w-10"
+                    : "bg-zinc-300 dark:bg-white/40 w-2 hover:bg-zinc-500 dark:hover:bg-white/80"
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />

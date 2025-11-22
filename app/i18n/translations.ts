@@ -32,6 +32,37 @@ export const translations = {
         },
       ],
     },
+    hero: {
+      subtitle: "Jirawat Damung",
+      title: "Pro. Beyond.",
+      description:
+        "Game Developer. Software Engineer. Crafting digital experiences that matter.",
+      contact: "Contact Me",
+      learnMore: "Learn more",
+    },
+    skills: {
+      title: "Power.",
+      subtitle: "Under the hood.",
+      description: "The technologies that drive my innovations.",
+      items: [
+        { name: "C#", desc: "Robust Backend Logic" },
+        { name: "Python", desc: "Data & Scripting" },
+        { name: "Unity", desc: "Interactive 3D Worlds" },
+      ],
+    },
+    connect: {
+      title1: "Let's create something",
+      title2: "extraordinary.",
+      description:
+        "Whether you have a game idea, a software challenge, or just want to say hello. I'm ready.",
+      button: "Get in Touch",
+    },
+    footer: {
+      rights: "All rights reserved.",
+      privacy: "Privacy Policy",
+      terms: "Terms of Use",
+      sitemap: "Site Map",
+    },
   },
   th: {
     navbar: {
@@ -65,6 +96,37 @@ export const translations = {
             "ทุกโครงการคือก้าวสู่ความสมบูรณ์แบบ พร้อมที่จะสร้างสิ่งต่อไปหรือยัง? มาสร้างสิ่งที่พิเศษกันเถอะ",
         },
       ],
+    },
+    hero: {
+      subtitle: "จิรวัฒน์ ดามัง",
+      title: "มืออาชีพ. เหนือกว่า.",
+      description:
+        "นักพัฒนาเกม วิศวกรซอฟต์แวร์ สร้างสรรค์ประสบการณ์ดิจิทัลที่มีความหมาย",
+      contact: "ติดต่อฉัน",
+      learnMore: "เรียนรู้เพิ่มเติม",
+    },
+    skills: {
+      title: "พลัง.",
+      subtitle: "เบื้องหลังความสำเร็จ.",
+      description: "เทคโนโลยีที่ขับเคลื่อนนวัตกรรมของผม",
+      items: [
+        { name: "C#", desc: "ตรรกะแบ็คเอนด์ที่แข็งแกร่ง" },
+        { name: "Python", desc: "ข้อมูลและการเขียนสคริปต์" },
+        { name: "Unity", desc: "โลก 3 มิติที่โต้ตอบได้" },
+      ],
+    },
+    connect: {
+      title1: "มาสร้างสรรค์สิ่งที่",
+      title2: "พิเศษสุดกันเถอะ.",
+      description:
+        "ไม่ว่าคุณจะมีไอเดียเกม ความท้าทายด้านซอฟต์แวร์ หรือแค่ต้องการทักทาย ผมพร้อมแล้ว",
+      button: "ติดต่อเลย",
+    },
+    footer: {
+      rights: "สงวนลิขสิทธิ์",
+      privacy: "นโยบายความเป็นส่วนตัว",
+      terms: "เงื่อนไขการใช้งาน",
+      sitemap: "แผนผังเว็บไซต์",
     },
   },
 };
