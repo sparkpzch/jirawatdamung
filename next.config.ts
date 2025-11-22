@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   // If your repository name is not your-username.github.io, uncomment and set basePath
-  // basePath: process.env.NODE_ENV === 'production' ? '/repository-name' : '',
+  basePath: "/jirawatdamung",
   // trailingSlash: true,
 };
 
