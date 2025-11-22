@@ -1,11 +1,19 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useTheme } from "next-themes";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../i18n/translations";
+import { Moon, Sun } from "lucide-react";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const { language, toggleLanguage } = useLanguage();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       // Shrink navbar logic
       if (window.scrollY > 50) {
@@ -18,6 +26,10 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const t = translations[language].navbar;
+
+  if (!mounted) return null;
 
   return (
     <nav
@@ -42,16 +54,40 @@ export default function Navbar() {
           </Link>
 
           {/* Links */}
-          <div className="hidden md:flex gap-8 text-[#1d1d1f]/80 dark:text-[#f5f5f7]/80">
-            {["Overview", "Experience", "Skills", "Connect"].map((item) => (
+          <div className="hidden md:flex items-center gap-8 text-[#1d1d1f]/80 dark:text-[#f5f5f7]/80">
+            {Object.entries(t).map(([key, value]) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
+                key={key}
+                href={`#${key}`}
                 className="hover:text-[#0071e3] dark:hover:text-[#2997ff] transition-colors duration-300"
               >
-                {item}
+                {value}
               </a>
             ))}
+
+            <div className="flex items-center gap-4 pl-4 border-l border-zinc-200 dark:border-zinc-700">
+              {/* Theme Toggle */}
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                aria-label="Toggle Theme"
+              >
+                {theme === "dark" ? (
+                  <Sun className="w-4 h-4" />
+                ) : (
+                  <Moon className="w-4 h-4" />
+                )}
+              </button>
+
+              {/* Language Toggle */}
+              <button
+                onClick={toggleLanguage}
+                className="px-2 py-1 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors font-bold"
+                aria-label="Toggle Language"
+              >
+                {language === "en" ? "TH" : "EN"}
+              </button>
+            </div>
           </div>
         </div>
       </div>

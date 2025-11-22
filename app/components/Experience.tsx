@@ -1,48 +1,36 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-
-interface ExperienceItem {
-  id: number;
-  year: string;
-  title: string;
-  description: string;
-  image: string;
-  color: string;
-}
-
-const experiences: ExperienceItem[] = [
-  {
-    id: 1,
-    year: "3+ Years",
-    title: "Forging Digital Landscapes",
-    description:
-      "From indie games to enterprise software, I bring code to life with a focus on performance and user experience.",
-    image: "/pictures/Portait2.png",
-    color: "text-[#0071e3]",
-  },
-  {
-    id: 2,
-    year: "Full Stack",
-    title: "Mastery Across the Stack",
-    description:
-      "Bridging the gap between complex backends and immersive frontends. Expertise in C#, Python, React, and Unity.",
-    image: "/pictures/MainPortait.png",
-    color: "text-purple-400",
-  },
-  {
-    id: 3,
-    year: "20+ Projects",
-    title: "Delivered Excellence",
-    description:
-      "Each project is a step towards perfection. Ready to build the next one? Let's create something extraordinary.",
-    image: "/pictures/Portait2.png",
-    color: "text-white",
-  },
-];
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../i18n/translations";
 
 export default function Experience() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { language } = useLanguage();
+  const t = translations[language].experience;
+
+  // Map the static experiences to use translated text
+  // We need to preserve the image and color which are not in translations
+  const experiences = t.items.map((item, index) => {
+    const staticData = [
+      {
+        image: "/pictures/Portait2.png",
+        color: "text-[#0071e3]",
+      },
+      {
+        image: "/pictures/MainPortait.png",
+        color: "text-purple-400",
+      },
+      {
+        image: "/pictures/Portait2.png",
+        color: "text-white",
+      },
+    ];
+    return {
+      ...item,
+      ...staticData[index],
+    };
+  });
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % experiences.length);
@@ -66,7 +54,7 @@ export default function Experience() {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-5xl md:text-7xl font-bold tracking-tighter bg-clip-text text-transparent bg-linear-to-b from-white to-white/40">
-            Experience.
+            {t.title}
           </h2>
         </div>
 
