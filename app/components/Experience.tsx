@@ -3,6 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../i18n/translations";
+import { getBasePath } from "../utils/basePath";
 
 export default function Experience() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -14,15 +15,15 @@ export default function Experience() {
   const experiences = t.items.map((item, index) => {
     const staticData = [
       {
-        image: "/pictures/Portait2.png",
+        image: getBasePath("/pictures/Portait2.png"),
         color: "text-[#0071e3]",
       },
       {
-        image: "/pictures/MainPortait.png",
+        image: getBasePath("/pictures/MainPortait.png"),
         color: "text-purple-400",
       },
       {
-        image: "/pictures/Portait2.png",
+        image: getBasePath("/pictures/Portait2.png"),
         color: "text-white",
       },
     ];

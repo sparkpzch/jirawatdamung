@@ -5,6 +5,7 @@ import Experience from "./components/Experience";
 import Navbar from "./components/Navbar";
 import { useLanguage } from "./context/LanguageContext";
 import { translations } from "./i18n/translations";
+import { getBasePath } from "./utils/basePath";
 
 export default function Home() {
   const { language } = useLanguage();
@@ -52,7 +53,7 @@ export default function Home() {
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="relative w-[300px] h-[300px] md:w-[500px] md:h-[500px] transition-transform duration-700 hover:scale-[1.02]">
                 <Image
-                  src="/pictures/MainPortait.png"
+                  src={getBasePath("/pictures/MainPortait.png")}
                   alt="Jirawat Portrait"
                   fill
                   className="object-contain drop-shadow-2xl"
@@ -81,9 +82,9 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {t.skills.items.map((skill, index) => {
                 const icons = [
-                  "/pictures/csharp.png",
-                  "/pictures/Python.png",
-                  "/pictures/Unity.png",
+                  getBasePath("/pictures/csharp.png"),
+                  getBasePath("/pictures/Python.png"),
+                  getBasePath("/pictures/Unity.png"),
                 ];
                 return (
                   <div
