@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,9 +34,12 @@ export default function Navbar() {
       >
         <div className="h-12 flex items-center justify-between text-xs font-medium tracking-wide relative">
           {/* Logo */}
-          <div className="text-lg font-semibold tracking-tight cursor-pointer opacity-90 hover:opacity-100 transition-opacity">
+          <Link
+            href="/"
+            className="text-lg font-semibold tracking-tight cursor-pointer opacity-90 hover:opacity-100 transition-opacity"
+          >
             Jirawat<span className="text-[#86868b]">Damung</span>
-          </div>
+          </Link>
 
           {/* Links */}
           <div className="hidden md:flex gap-8 text-[#1d1d1f]/80 dark:text-[#f5f5f7]/80">
