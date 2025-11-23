@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Experience from "./components/Experience";
 import Navbar from "./components/Navbar";
@@ -10,6 +11,7 @@ import { getBasePath } from "./utils/basePath";
 export default function Home() {
   const { language } = useLanguage();
   const t = translations[language];
+  const [activeSkillIndex, setActiveSkillIndex] = useState<number | null>(null);
 
   return (
     <div className="min-h-screen bg-[#f5f5f7] dark:bg-[#000000] text-[#1d1d1f] dark:text-[#f5f5f7] font-sans selection:bg-[#0071e3] selection:text-white">
@@ -83,10 +85,16 @@ export default function Home() {
                   getBasePath("/pictures/AI.png"),
                   getBasePath("/pictures/Brain.png"),
                 ];
+                const isActive = activeSkillIndex === index;
                 return (
                   <div
                     key={skill.name}
-                    className="group relative h-80 bg-white dark:bg-[#1d1d1f] rounded-3xl p-8 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-[0_20px_60px_-15px_rgba(168,85,247,0.6)] hover:scale-110 transition-all duration-300 ease-out z-0 hover:z-10"
+                    onClick={() => setActiveSkillIndex(isActive ? null : index)}
+                    className={`group relative h-80 bg-white dark:bg-[#1d1d1f] rounded-3xl p-8 flex flex-col items-center justify-center text-center transition-all duration-300 ease-out cursor-pointer shadow-sm z-0
+                      ${isActive 
+                        ? '!shadow-[0_20px_60px_-15px_rgba(168,85,247,0.6)] scale-110 z-10 md:!shadow-sm md:scale-100 md:z-0' 
+                        : ''}
+                      md:hover:!shadow-[0_20px_60px_-15px_rgba(168,85,247,0.6)] md:hover:scale-110 md:hover:z-10`}
                   >
                     <div className="relative w-24 h-24 mb-4">
                       <Image
@@ -98,7 +106,11 @@ export default function Home() {
                     </div>
                     <h3 className="text-2xl font-bold mb-2">{skill.name}</h3>
                     <div className="flex items-center justify-center w-full">
-                      <p className="text-[#86868b] font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-pre-line">
+                      <p 
+                        className={`text-[#86868b] font-medium transition-opacity duration-300 whitespace-pre-line
+                          ${isActive ? 'opacity-100' : 'opacity-0'}
+                          md:opacity-0 md:group-hover:opacity-100`}
+                      >
                         {skill.desc}
                       </p>
                     </div>
