@@ -119,12 +119,11 @@ export default function Experience() {
 
             return (
               <motion.div
-                layoutId={isActive ? `card-${exp.id}` : undefined}
+                layoutId={`card-${exp.id}`}
                 key={exp.id}
                 onClick={() => {
-                  if (isPrev) prevSlide();
-                  if (isNext) nextSlide();
-                  if (isActive) setPreviewMode(true);
+                  setCurrentIndex(index);
+                  setPreviewMode(true);
                 }}
                 className={`group absolute w-full max-w-5xl aspect-video md:aspect-21/9 bg-white/80 dark:bg-zinc-900/50 rounded-[3rem] border border-zinc-200 dark:border-white/10 overflow-hidden backdrop-blur-xl shadow-2xl transition-all duration-700 ease-in-out ${transformClass}`}
               >
