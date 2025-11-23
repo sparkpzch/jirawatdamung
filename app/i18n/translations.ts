@@ -1,7 +1,6 @@
 export const translations = {
   en: {
     navbar: {
-      overview: "Overview",
       experience: "Experience",
       skills: "Skills",
       connect: "Connect",
@@ -56,7 +55,7 @@ export const translations = {
         },
         {
           id: 6,
-          header: "Research Assistant - \nBangkok University",
+          header: "Research Assistant \nBangkok University",
           title: "Center of Specialty Innovation",
           description:
             "The Center of Specialty Innovation (CoSI) at Bangkok University is a specialized innovation center where I worked for 1 year and 6 months. During my time there, I contributed to several notable projects such as School of Survival and CoSI – Drone Pilot. These projects were developed in response to real-world challenges provided by industry sectors including healthcare, defense, and more.",
@@ -91,7 +90,7 @@ export const translations = {
         },
         {
           name: "DevSecOps Skill",
-          desc: "CI/CD, Docker, Security,\n Linux Distros",
+          desc: "CI/CD, Docker, \nSecurity, Linux Distros",
         },
         {
           name: "AI/ML Skill",
@@ -113,82 +112,80 @@ export const translations = {
   },
   th: {
     navbar: {
-      overview: "ภาพรวม",
       experience: "ประสบการณ์",
       skills: "ทักษะ",
       connect: "ติดต่อ",
     },
     experience: {
-      title: "ประสบการณ์.",
+      title: "ประสบการณ์",
       items: [
         {
           id: 1,
-          header: "3+ ปี",
-          title: "สร้างสรรค์โลกดิจิทัล",
+          header: "IEEE Competition - AI",
+          title: "IEEE 2nd ChatGPT4PCG Competition",
           description:
-            "จากเกมอินดี้สู่ซอฟต์แวร์ระดับองค์กร ผมสร้างโค้ดให้มีชีวิตโดยมุ่งเน้นที่ประสิทธิภาพและประสบการณ์ผู้ใช้",
-          link: "#",
-          linkText: "ดูโปรเจกต์",
+            "ผมได้รับ รางวัลอันดับที่ 3 ของโลก ในกลุ่มนักวิจัย \nจากการแข่งขันระดับนานาชาติ ChatGPT4PCG Competition\nซึ่งเป็นการแข่งขันในการออกแบบ Prompt AI เพื่อใช้ในงานวิจัย",
+          link: "https://www.linkedin.com/in/jirawat-damung-023791343/",
+          linkText: "ดูรายละเอียด",
         },
         {
           id: 2,
-          header: "Full Stack",
-          title: "เชี่ยวชาญทุกระดับชั้น",
+          header: "มีส่วนร่วมพัฒนาเกม",
+          title: "School of Survival",
           description:
-            "เชื่อมช่องว่างระหว่างแบ็คเอนด์ที่ซับซ้อนและฟรอนต์เอนด์ที่น่าดึงดูด เชี่ยวชาญใน C#, Python, React และ Unity",
-          link: "#",
-          linkText: "ดูทักษะ",
+            "ผมมีประสบการณ์ในการพัฒนาโปรเจกต์เกมบนแพลตฟอร์ม Roblox \nอยู่รอดวิทยาเป็นโปรเจกต์เกมเพื่อการเรียนรู้ที่ถูกออกแบบมา\nเพื่อช่วยให้นักเรียนฝึกกลยุทธ์การเอาตัวรอดในสถานการณ์กราดยิง\nในโรงเรียนที่เกิดขึ้นจริงในหลายประเทศทั่วโลก โปรเจกต์นี้อ้างอิงจากหลักการ หนี–ซ่อน–สู้ ที่ได้รับการยอมรับในระดับสากล\nและมอบประสบการณ์จำลองแบบโต้ตอบเพื่อให้ผู้ใช้เรียนรู้วิธีรับมืออย่างถูกต้องในสภาพแวดล้อมดิจิทัลที่ปลอดภัยและถูกควบคุม",
+          link: "https://yoorodwittaya.com/",
+          linkText: "ดูรายละเอียด",
         },
         {
           id: 3,
-          header: "20+ โครงการ",
-          title: "ส่งมอบความเป็นเลิศ",
+          header: "มีส่วนร่วมพัฒนาจำลองการบิน",
+          title: "CoSI Pilot",
           description:
-            "ทุกโครงการคือก้าวสู่ความสมบูรณ์แบบ พร้อมที่จะสร้างสิ่งต่อไปหรือยัง? มาสร้างสิ่งที่พิเศษกันเถอะ",
-          link: "#",
-          linkText: "ดูผลงาน",
+            "ผมมีส่วนร่วมในโปรเจกต์ CoSI - Pilot ซึ่งเป็นระบบฝึกบินโดรนแบบเสมือนจริง (VR) ที่ถูกออกแบบมาเพื่อพัฒนาทักษะของนักบินในด้านการนำร่อง การตัดสินใจ และการรับรู้สถานการณ์ภายใต้สภาพแวดล้อมจำลองหลากหลายรูปแบบ โดยพัฒนาร่วมกับสถาบันเทคโนโลยีป้องกันประเทศ (สทป.) ของไทย และรองรับการฝึกตามมาตรฐานทั้งภาคพลเรือนและภาคการป้องกันประเทศ",
+          link: "https://cosi.bu.ac.th/projects/cosi-pilot",
+          linkText: "ดูรายละเอียด",
         },
         {
           id: 4,
-          header: "การออกแบบเกม",
-          title: "กลไกที่สร้างสรรค์",
+          header: "การพัฒนาเว็บไซต์",
+          title: "Stin - Counseling",
           description:
-            "ออกแบบกลไกและระบบการเล่นที่น่าสนใจเพื่อให้ผู้เล่นรู้สึกดื่มด่ำและท้าทาย มุ่งเน้นที่ความคิดเห็นของผู้เล่นและการออกแบบซ้ำ",
-          link: "#",
+            "Stin – Counseling เป็นโปรเจกต์ที่ร่วมพัฒนากับโรงพยาบาล\nจุฬาลงกรณ์ สภากาชาดไทย เพื่อใช้ในการฝึกบุคลากรทางการแพทย์\nให้สามารถสื่อสารและพูดคุยกับผู้ป่วยได้อย่างเป็นขั้นตอน\nและมีประสิทธิภาพ โดยระบบจะมีการเก็บคะแนนและแสดงผลบน \nGlobal Leaderboard",
+          link: "https://www.stin-counseling.site/",
           linkText: "ดูรายละเอียด",
         },
         {
           id: 5,
-          header: "พัฒนาแอปมือถือ",
-          title: "แอปข้ามแพลตฟอร์ม",
+          header: "มีส่วนร่วมพัฒนาเกม",
+          title: "Good Nurse",
           description:
-            "สร้างแอปพลิเคชันมือถือที่ตอบสนองและใช้งานง่ายสำหรับทั้ง iOS และ Android โดยใช้ React Native และ Flutter",
-          link: "#",
-          linkText: "ดูแอป",
+            "Good Nurse เป็นเกมเพื่อการเรียนรู้ที่ใช้ในการฝึกบริหาร\nยาทางจิตเวช 5 กลุ่ม พร้อมทั้งสอนวิธีให้ยาแก่ผู้รับบริการอย่างถูกต้อง เกมถูกออกแบบมาเป็น 4 ด่านที่มีความแตกต่างกันอย่างชัดเจน\nทั้งด้านสถานการณ์และความท้าทาย หลักสูตรภายในเกมอ้างอิงจากมาตรฐานวิชาชีพพยาบาลจริง และยังสอดคล้องกับเนื้อหาที่ปรากฏ\nในรายวิชาของนักศึกษาพยาบาลและข้อสอบอีกด้วย",
+          link: "https://good-nurse.itch.io/good-nurse",
+          linkText: "ดูรายละเอียด",
         },
         {
           id: 6,
-          header: "การรวม AI",
-          title: "โซลูชันอัจฉริยะ",
+          header: "ผู้ช่วยนักวิจัย \nมหาวิทยาลัยกรุงเทพ",
+          title: "ศูนย์นวัตกรรมเฉพาะทาง",
           description:
-            "นำปัญญาประดิษฐ์และอัลกอริธึมการเรียนรู้ของเครื่องมาใช้เพื่อแก้ปัญหาที่ซับซ้อนและยกระดับประสบการณ์ผู้ใช้",
-          link: "#",
-          linkText: "ดูงานวิจัย",
+            "Center of Specialty Innovation (CoSI) มหาวิทยาลัยกรุงเทพ \nเป็นศูนย์นวัตกรรมเฉพาะทางที่ผมได้ทำงานเป็นระยะเวลา 1 ปี 6 เดือน โดยตลอดช่วงเวลานั้น ผมมีส่วนร่วมในผลงานหลายผลงาน เช่น \nSchool of Survival และ CoSI – Drone Pilot ซึ่งล้วนเป็นโปรเจกต์\nที่รับโจทย์จริงจากภาคอุตสาหกรรม ทั้งด้านการแพทย์ การทหาร และอุตสาหกรรมอื่น ๆ อีกมากมาย",
+          link: "https://cosi.bu.ac.th/",
+          linkText: "ดูรายละเอียด",
         },
       ],
     },
     hero: {
       subtitle: "จิรวัฒน์ ดามัง",
-      title: "มืออาชีพ. เหนือกว่า.",
+      title: "จงทำงานหนักอย่างเงียบๆ \nแล้วปล่อยความสำเร็จเป็นประจักษ์",
       description:
-        "นักพัฒนาเกม วิศวกรซอฟต์แวร์ สร้างสรรค์ประสบการณ์ดิจิทัลที่มีความหมาย",
-      contact: "ติดต่อฉัน",
-      learnMore: "เรียนรู้เพิ่มเติม",
+        "นักพัฒนาเว็บ. วิศวกรซอฟต์แวร์. นักพัฒนาเกม. \nมีความกระตือรือร้นที่จะเผชิญความท้าทายใหม่ \nเรียนรู้ได้รวดเร็ว และสามารถปรับตัวได้ดี",
+      contact: "เพิ่มเติม",
     },
     skills: {
-      title: "พลัง.",
-      subtitle: "เบื้องหลังความสำเร็จ.",
-      description: "เทคโนโลยีที่ขับเคลื่อนนวัตกรรมของผม",
+      title: "ทักษะ",
+      subtitle: "เบื้องหลังความสำเร็จ",
+      description: "เทคโนโลยีที่ขับเคลื่อนนวัตกรรม",
       items: [
         {
           name: "ทักษะการเขียนโปรแกรม",
@@ -200,15 +197,15 @@ export const translations = {
         },
         {
           name: "ทักษะนักพัฒนาเว็บ",
-          desc: "React, Next.js, Node.js, Tailwind CSS",
+          desc: "React, Next.js, Node.js, Tailwind CSS และอื่นๆ",
         },
         {
           name: "ทักษะ DevSecOps",
-          desc: "CI/CD, Docker, ความปลอดภัย,\n Linux",
+          desc: "CI/CD, Docker, \nความปลอดภัย, การใช้ Linux",
         },
         {
           name: "ทักษะ AI/ML",
-          desc: "TensorFlow, PyTorch, การวิเคราะห์ข้อมูล",
+          desc: "TensorFlow, PyTorch,\nScikit-learn, YOLO, NLP, LLM",
         },
         {
           name: "ทักษะการแก้ปัญหา",
@@ -217,17 +214,11 @@ export const translations = {
       ],
     },
     connect: {
-      title1: "มาสร้างสรรค์สิ่งที่",
-      title2: "พิเศษสุดกันเถอะ.",
+      title1: "มาทำให้ไอเดียของคุณ",
+      title2: "เป็นสิ่งที่จับต้องได้",
       description:
-        "ไม่ว่าคุณจะมีไอเดียเกม ความท้าทายด้านซอฟต์แวร์ หรือแค่ต้องการทักทาย ผมพร้อมแล้ว",
+        "ไม่ว่าคุณจะมีไอเดียเกม ความท้าทายด้านซอฟต์แวร์ หรือแค่ต้องการทักทาย ผมพร้อมเสมอ",
       button: "ติดต่อเลย",
-    },
-    footer: {
-      rights: "สงวนลิขสิทธิ์",
-      privacy: "นโยบายความเป็นส่วนตัว",
-      terms: "เงื่อนไขการใช้งาน",
-      sitemap: "แผนผังเว็บไซต์",
     },
   },
 };

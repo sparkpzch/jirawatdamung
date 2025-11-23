@@ -24,7 +24,7 @@ export default function Experience() {
       },
       {
         image: getBasePath("/pictures/Drone.jpg"),
-        color: "text-white",
+        color: "text-sky-600",
       },
       {
         image: getBasePath("/pictures/stin.png"),
