@@ -93,7 +93,7 @@ export default function Home() {
                         src={icons[index]}
                         alt={skill.name}
                         fill
-                        className="object-contain drop-shadow-md"
+                        className="object-contain drop-shadow-md invert dark:invert-0"
                       />
                     </div>
                     <h3 className="text-2xl font-bold mb-2">{skill.name}</h3>

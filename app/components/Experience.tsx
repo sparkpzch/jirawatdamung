@@ -164,7 +164,11 @@ export default function Experience() {
                         src={exp.image}
                         alt={exp.title}
                         fill
-                        className="object-cover object-center blur-[3px] group-hover:blur-none transition-all duration-500"
+                        className={`object-cover object-center blur-[3px] group-hover:blur-none transition-all duration-500 ${
+                          exp.image.toLowerCase().endsWith(".png")
+                            ? "invert dark:invert-0"
+                            : ""
+                        }`}
                       />
                     </div>
                   </div>
