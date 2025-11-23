@@ -125,10 +125,10 @@ export default function Experience() {
                   setCurrentIndex(index);
                   setPreviewMode(true);
                 }}
-                className={`group absolute w-full max-w-5xl aspect-video md:aspect-21/9 bg-white/80 dark:bg-zinc-900/50 rounded-[3rem] border border-zinc-200 dark:border-white/10 overflow-hidden backdrop-blur-xl shadow-2xl transition-all duration-700 ease-in-out ${transformClass}`}
+                className={`group absolute w-full max-w-5xl aspect-3/4 md:aspect-21/9 bg-white/80 dark:bg-zinc-900/50 rounded-[3rem] border border-zinc-200 dark:border-white/10 overflow-hidden backdrop-blur-xl shadow-2xl transition-all duration-700 ease-in-out ${transformClass}`}
               >
                 {/* Content Container */}
-                <div className="absolute inset-0 flex items-center justify-between p-8 md:p-20">
+                <div className="absolute inset-0 flex items-center justify-between p-12 md:p-20">
                   {/* Text Content */}
                   <div
                     className={`flex-1 max-w-xl z-20 space-y-6 transition-opacity duration-500 ${
@@ -256,7 +256,7 @@ export default function Experience() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+            className="fixed inset-0 z-100 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
             onClick={() => setPreviewMode(false)}
           >
             <motion.div
@@ -297,7 +297,7 @@ export default function Experience() {
                     shouldInvert(currentExp.image) ? "invert dark:invert-0" : ""
                   }`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-zinc-900 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-white dark:from-zinc-900 to-transparent" />
               </motion.div>
 
               {/* Content */}
