@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../i18n/translations";
 import { getBasePath } from "../utils/basePath";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Experience() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -107,7 +108,8 @@ export default function Experience() {
             }
 
             return (
-              <div
+              <motion.div
+                layoutId={isActive ? `card-${exp.id}` : undefined}
                 key={exp.id}
                 onClick={() => {
                   if (isPrev) prevSlide();
@@ -177,7 +179,7 @@ export default function Experience() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
 
@@ -241,88 +243,97 @@ export default function Experience() {
       </div>
 
       {/* Mobile Preview Modal */}
-      {previewMode && currentExp && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
-          onClick={() => setPreviewMode(false)}
-        >
-          <div
-            className="relative w-[80%] max-w-2xl max-h-[80vh] overflow-y-auto bg-white dark:bg-zinc-900 rounded-3xl shadow-2xl flex flex-col animate-in fade-in zoom-in-95 duration-200"
-            onClick={(e) => e.stopPropagation()}
+      <AnimatePresence>
+        {previewMode && currentExp && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+            onClick={() => setPreviewMode(false)}
           >
-            {/* Close Button */}
-            <button
-              onClick={() => setPreviewMode(false)}
-              className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20 transition-colors backdrop-blur-md"
+            <motion.div
+              layoutId={`card-${currentExp.id}`}
+              className="relative w-[80%] max-w-2xl max-h-[80vh] overflow-y-auto bg-white dark:bg-zinc-900 rounded-3xl shadow-2xl flex flex-col"
+              onClick={(e) => e.stopPropagation()}
             >
-              <svg
-                className="w-5 h-5 text-zinc-900 dark:text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+              {/* Close Button */}
+              <motion.button
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setPreviewMode(false)}
+                className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20 transition-colors backdrop-blur-md"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-
-            {/* Image Header */}
-            <div className="relative w-full h-48 md:h-64 shrink-0">
-              <Image
-                src={currentExp.image}
-                alt={currentExp.title}
-                fill
-                className={`object-cover ${
-                  currentExp.image.toLowerCase().endsWith(".png")
-                    ? "invert dark:invert-0"
-                    : ""
-                }`}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-zinc-900 to-transparent" />
-            </div>
-
-            {/* Content */}
-            <div className="p-6 md:p-8 -mt-6 relative z-10">
-              <div className={`text-lg font-bold ${currentExp.color} mb-2`}>
-                {currentExp.header}
-              </div>
-              <h3 className="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white mb-4 leading-tight">
-                {currentExp.title}
-              </h3>
-              <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed whitespace-pre-line">
-                {currentExp.description}
-              </p>
-              {currentExp.link && (
-                <a
-                  href={currentExp.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-2 text-base font-medium ${currentExp.color} hover:underline mt-6`}
+                <svg
+                  className="w-5 h-5 text-zinc-900 dark:text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  {currentExp.linkText}
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </motion.button>
+
+              {/* Image Header */}
+              <motion.div className="relative w-full h-48 md:h-64 shrink-0">
+                <Image
+                  src={currentExp.image}
+                  alt={currentExp.title}
+                  fill
+                  className={`object-cover ${
+                    currentExp.image.toLowerCase().endsWith(".png")
+                      ? "invert dark:invert-0"
+                      : ""
+                  }`}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-zinc-900 to-transparent" />
+              </motion.div>
+
+              {/* Content */}
+              <motion.div className="p-6 md:p-8 -mt-6 relative z-10">
+                <div className={`text-lg font-bold ${currentExp.color} mb-2`}>
+                  {currentExp.header}
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white mb-4 leading-tight">
+                  {currentExp.title}
+                </h3>
+                <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed whitespace-pre-line">
+                  {currentExp.description}
+                </p>
+                {currentExp.link && (
+                  <a
+                    href={currentExp.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center gap-2 text-base font-medium ${currentExp.color} hover:underline mt-6`}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </a>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
+                    {currentExp.linkText}
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </a>
+                )}
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
