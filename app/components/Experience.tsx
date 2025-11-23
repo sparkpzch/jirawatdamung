@@ -49,6 +49,16 @@ export default function Experience() {
 
   const currentExp = experiences[currentIndex];
 
+  // Images that should NOT be inverted in light mode
+  const noInvertImages = ["stin.png", "cosi.png", "ieee.png", "yoorod.png"];
+
+  // Helper function to check if image should be inverted
+  const shouldInvert = (imagePath: string) => {
+    if (!imagePath.toLowerCase().endsWith(".png")) return false;
+    const imageName = imagePath.toLowerCase().split("/").pop() || "";
+    return !noInvertImages.includes(imageName);
+  };
+
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % experiences.length);
   };
@@ -171,9 +181,7 @@ export default function Experience() {
                         alt={exp.title}
                         fill
                         className={`object-cover object-center blur-[3px] group-hover:blur-none transition-all duration-500 ${
-                          exp.image.toLowerCase().endsWith(".png")
-                            ? "invert dark:invert-0"
-                            : ""
+                          shouldInvert(exp.image) ? "invert dark:invert-0" : ""
                         }`}
                       />
                     </div>
@@ -287,9 +295,7 @@ export default function Experience() {
                   alt={currentExp.title}
                   fill
                   className={`object-cover ${
-                    currentExp.image.toLowerCase().endsWith(".png")
-                      ? "invert dark:invert-0"
-                      : ""
+                    shouldInvert(currentExp.image) ? "invert dark:invert-0" : ""
                   }`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-zinc-900 to-transparent" />
