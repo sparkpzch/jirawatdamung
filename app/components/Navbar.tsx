@@ -56,13 +56,18 @@ export default function Navbar() {
           {/* Links */}
           <div className="hidden md:flex items-center gap-8 text-[#1d1d1f]/80 dark:text-[#f5f5f7]/80">
             {Object.entries(t).map(([key, value]) => (
-              <a
+              <button
                 key={key}
-                href={`#${key}`}
+                onClick={() => {
+                  const element = document.getElementById(key);
+                  if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
                 className="hover:text-[#0071e3] dark:hover:text-[#2997ff] transition-colors duration-300"
               >
                 {value}
-              </a>
+              </button>
             ))}
 
             <div className="flex items-center gap-4 pl-4 border-l border-zinc-200 dark:border-zinc-700">

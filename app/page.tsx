@@ -26,24 +26,18 @@ export default function Home() {
             <h2 className="text-xl md:text-2xl font-semibold text-[#0071e3] dark:text-[#2997ff]">
               {t.hero.subtitle}
             </h2>
-            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-[#1d1d1f] dark:text-[#f5f5f7]">
+            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-[#1d1d1f] dark:text-[#f5f5f7] whitespace-pre-line">
               {t.hero.title}
             </h1>
-            <p className="text-xl md:text-2xl font-medium text-[#86868b] max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl font-medium text-[#86868b] max-w-2xl mx-auto leading-relaxed whitespace-pre-line">
               {t.hero.description}
             </p>
             <div className="flex items-center justify-center gap-4 pt-6">
               <a
-                href="#connect"
+                href="https://www.linkedin.com/in/jirawat-damung-023791343/"
                 className="bg-[#0071e3] text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-[#0077ed] transition-colors"
               >
                 {t.hero.contact}
-              </a>
-              <a
-                href="#experience"
-                className="text-[#0071e3] dark:text-[#2997ff] text-sm font-medium hover:underline flex items-center gap-1"
-              >
-                {t.hero.learnMore} <span className="text-xs">›</span>
               </a>
             </div>
           </div>
@@ -82,9 +76,12 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {t.skills.items.map((skill, index) => {
                 const icons = [
-                  getBasePath("/pictures/csharp.png"),
-                  getBasePath("/pictures/Python.png"),
+                  getBasePath("/pictures/ProgrammingSkill.png"),
                   getBasePath("/pictures/Unity.png"),
+                  getBasePath("/pictures/WebDev.png"),
+                  getBasePath("/pictures/DevSecOps.png"),
+                  getBasePath("/pictures/AI.png"),
+                  getBasePath("/pictures/Brain.png"),
                 ];
                 return (
                   <div
@@ -100,8 +97,8 @@ export default function Home() {
                       />
                     </div>
                     <h3 className="text-2xl font-bold mb-2">{skill.name}</h3>
-                    <div className="h-8 flex items-center justify-center">
-                      <p className="text-[#86868b] font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="flex items-center justify-center w-full">
+                      <p className="text-[#86868b] font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-pre-line">
                         {skill.desc}
                       </p>
                     </div>
@@ -121,11 +118,11 @@ export default function Home() {
                 {t.connect.title2}
               </span>
             </h2>
-            <p className="text-[#86868b] text-lg mb-10 leading-relaxed">
+            <p className="text-[#86868b] text-lg mb-10 leading-relaxed whitespace-pre-line">
               {t.connect.description}
             </p>
             <a
-              href="mailto:contact@example.com"
+              href="https://www.linkedin.com/in/jirawat-damung-023791343/"
               className="inline-block bg-[#0071e3] text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-[#0077ed] transition-transform hover:scale-105 duration-300"
             >
               {t.connect.button}
@@ -133,28 +130,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-
-      <footer className="bg-[#f5f5f7] dark:bg-[#000000] py-10 border-t border-zinc-200 dark:border-zinc-800 text-xs text-[#86868b]">
-        <div className="max-w-[980px] mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p>
-              Copyright &copy; {new Date().getFullYear()} Jirawat Damung.{" "}
-              {t.footer.rights}
-            </p>
-            <div className="flex gap-6">
-              <a href="#" className="hover:underline">
-                {t.footer.privacy}
-              </a>
-              <a href="#" className="hover:underline">
-                {t.footer.terms}
-              </a>
-              <a href="#" className="hover:underline">
-                {t.footer.sitemap}
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

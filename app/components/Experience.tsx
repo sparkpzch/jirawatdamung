@@ -15,16 +15,28 @@ export default function Experience() {
   const experiences = t.items.map((item, index) => {
     const staticData = [
       {
-        image: getBasePath("/pictures/Portait2.png"),
+        image: getBasePath("/pictures/IEEE.png"),
         color: "text-[#0071e3]",
       },
       {
-        image: getBasePath("/pictures/MainPortait.png"),
+        image: getBasePath("/pictures/yoorod.png"),
         color: "text-purple-400",
       },
       {
-        image: getBasePath("/pictures/Portait2.png"),
+        image: getBasePath("/pictures/Drone.jpg"),
         color: "text-white",
+      },
+      {
+        image: getBasePath("/pictures/stin.png"),
+        color: "text-orange-400",
+      },
+      {
+        image: getBasePath("/pictures/GoodNurse.jpg"),
+        color: "text-green-400",
+      },
+      {
+        image: getBasePath("/pictures/CoSI.png"),
+        color: "text-blue-400",
       },
     ];
     return {
@@ -64,19 +76,14 @@ export default function Experience() {
           {experiences.map((exp, index) => {
             // Calculate offset relative to current index
             // Handle wrapping logic for "infinite" feel or just clamped
-            // For simple wrapping with 3 items:
+
+            const len = experiences.length;
             let offset = index - currentIndex;
 
-            // Adjust offset for wrapping (e.g. if current is 2 and index is 0, offset should be 1, not -2)
-            // This simple logic works best if we assume we want to show neighbors.
-            // With only 3 items: 0, 1, 2.
-            // If current=0: 0->0, 1->1 (right), 2->-1 (left)
-            // If current=1: 0->-1 (left), 1->0, 2->1 (right)
-            // If current=2: 0->1 (right), 1->-1 (left), 2->0
-
-            if (experiences.length === 3) {
-              if (offset === -2) offset = 1;
-              if (offset === 2) offset = -1;
+            // Normalize offset to be within -len/2 to len/2 for circular wrapping
+            if (len > 0) {
+              offset = ((offset % len) + len) % len;
+              if (offset > len / 2) offset -= len;
             }
 
             const isActive = offset === 0;
@@ -86,7 +93,8 @@ export default function Experience() {
             // Styles based on position
             let transformClass = "translate-x-0 scale-0 opacity-0 z-0";
             if (isActive) {
-              transformClass = "translate-x-0 scale-100 opacity-100 z-20";
+              transformClass =
+                "translate-x-0 scale-100 opacity-100 z-20 hover:scale-110 hover:z-50 md:hover:aspect-video";
             } else if (isPrev) {
               transformClass =
                 "-translate-x-[85%] scale-90 opacity-40 z-10 blur-[2px] hover:opacity-60 hover:blur-0 cursor-pointer";
@@ -102,7 +110,7 @@ export default function Experience() {
                   if (isPrev) prevSlide();
                   if (isNext) nextSlide();
                 }}
-                className={`absolute w-full max-w-4xl aspect-video md:aspect-21/9 bg-white/80 dark:bg-zinc-900/50 rounded-[3rem] border border-zinc-200 dark:border-white/10 overflow-hidden backdrop-blur-xl shadow-2xl transition-all duration-700 ease-in-out ${transformClass}`}
+                className={`group absolute w-full max-w-5xl aspect-video md:aspect-21/9 bg-white/80 dark:bg-zinc-900/50 rounded-[3rem] border border-zinc-200 dark:border-white/10 overflow-hidden backdrop-blur-xl shadow-2xl transition-all duration-700 ease-in-out ${transformClass}`}
               >
                 {/* Content Container */}
                 <div className="absolute inset-0 flex items-center justify-between p-8 md:p-20">
@@ -113,27 +121,50 @@ export default function Experience() {
                     }`}
                   >
                     <div
-                      className={`text-2xl md:text-3xl font-bold ${exp.color}`}
+                      className={`text-2xl md:text-3xl font-bold ${exp.color} whitespace-pre-line`}
                     >
-                      {exp.year}
+                      {exp.header}
                     </div>
                     <h3 className="text-4xl md:text-6xl font-bold leading-tight text-zinc-900 dark:text-white">
                       {exp.title}
                     </h3>
-                    <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                    <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed whitespace-pre-line">
                       {exp.description}
                     </p>
+                    {exp.link && (
+                      <a
+                        href={exp.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`inline-flex items-center gap-2 text-lg font-medium ${exp.color} hover:underline mt-4`}
+                      >
+                        {exp.linkText}
+                        <svg
+                          className="w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                          />
+                        </svg>
+                      </a>
+                    )}
                   </div>
 
                   {/* Image Content (Right Side) */}
-                  <div className="absolute right-0 top-0 bottom-0 w-2/3 md:w-1/2 z-10 opacity-40 md:opacity-100 mask-image-linear-gradient">
+                  <div className="absolute right-0 top-0 bottom-0 w-2/3 md:w-1/2 z-10 opacity-40 md:opacity-100 group-hover:opacity-100 mask-image-linear-gradient">
                     <div className="relative w-full h-full">
                       <div className="absolute inset-0 bg-linear-to-l from-transparent via-transparent to-white/90 dark:to-zinc-900/90 z-20" />
                       <Image
                         src={exp.image}
                         alt={exp.title}
                         fill
-                        className="object-cover object-center"
+                        className="object-cover object-center blur-[3px] group-hover:blur-none transition-all duration-500"
                       />
                     </div>
                   </div>
@@ -145,7 +176,7 @@ export default function Experience() {
           {/* Navigation Buttons (Floating) */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 md:left-10 z-30 w-12 h-12 rounded-full bg-black/5 dark:bg-white/10 backdrop-blur-md flex items-center justify-center hover:bg-black/10 dark:hover:bg-white/20 transition-all hover:scale-110 active:scale-95"
+            className="absolute left-4 md:left-10 z-60 w-12 h-12 rounded-full bg-black/5 dark:bg-white/10 backdrop-blur-md flex items-center justify-center hover:bg-black/10 dark:hover:bg-white/20 transition-all hover:scale-110 active:scale-95"
             aria-label="Previous slide"
           >
             <svg
@@ -165,7 +196,7 @@ export default function Experience() {
 
           <button
             onClick={nextSlide}
-            className="absolute right-4 md:right-10 z-30 w-12 h-12 rounded-full bg-black/5 dark:bg-white/10 backdrop-blur-md flex items-center justify-center hover:bg-black/10 dark:hover:bg-white/20 transition-all hover:scale-110 active:scale-95"
+            className="absolute right-4 md:right-10 z-60 w-12 h-12 rounded-full bg-black/5 dark:bg-white/10 backdrop-blur-md flex items-center justify-center hover:bg-black/10 dark:hover:bg-white/20 transition-all hover:scale-110 active:scale-95"
             aria-label="Next slide"
           >
             <svg
