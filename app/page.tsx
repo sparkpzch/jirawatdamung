@@ -14,14 +14,23 @@ export default function Home() {
   const [activeSkillIndex, setActiveSkillIndex] = useState<number | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
+    let observer: IntersectionObserver | null = null;
+    let resizeTimeout: NodeJS.Timeout;
+
+    const setupObserver = () => {
+      // Cleanup existing observer
+      if (observer) {
+        observer.disconnect();
+        observer = null;
+      }
+
       // Only run on mobile
       if (window.innerWidth >= 768) {
         setActiveSkillIndex(null);
         return;
       }
 
-      const observer = new IntersectionObserver(
+      observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -32,30 +41,33 @@ export default function Home() {
         },
         {
           root: null,
-          rootMargin: "-40% 0px -40% 0px", // Trigger when item is in the middle 20% of viewport
-          threshold: 0.5,
+          // Increased active area to 40% of viewport height (30% top/bottom margin)
+          // This ensures cards are detected earlier and stay active longer
+          rootMargin: "-30% 0px -30% 0px",
+          // Lower threshold to trigger even if card is partially obscured or tall
+          threshold: 0.2,
         }
       );
 
-      // Observe all skill cards
       const cards = document.querySelectorAll('[id^="skill-card-"]');
-      cards.forEach((card) => observer.observe(card));
+      cards.forEach((card) => observer?.observe(card));
+    };
 
-      return () => {
-        cards.forEach((card) => observer.unobserve(card));
-        observer.disconnect();
-      };
+    // Debounced resize handler to prevent thrashing on mobile scroll (address bar resize)
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(setupObserver, 150);
     };
 
     // Initial setup
-    const cleanup = handleScroll();
+    setupObserver();
 
-    // Re-run on resize to handle orientation changes or window resizing
-    window.addEventListener("resize", handleScroll);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      if (cleanup) cleanup();
-      window.removeEventListener("resize", handleScroll);
+      if (observer) observer.disconnect();
+      window.removeEventListener("resize", handleResize);
+      clearTimeout(resizeTimeout);
     };
   }, []);
 
