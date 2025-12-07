@@ -76,7 +76,7 @@ export default function Home() {
       {/* Apple-style Navigation */}
       <Navbar />
 
-      <main className="pt-12">
+      <main className="pt-16">
         {/* Hero Section - Product Reveal Style */}
         <section
           id="overview"

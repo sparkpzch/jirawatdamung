@@ -41,11 +41,11 @@ export default function Navbar() {
       <div
         className={`mx-auto transition-all duration-500 ease-in-out ${
           isScrolled
-            ? "max-w-[95%] md:max-w-[600px] rounded-2xl md:rounded-full bg-white/80 dark:bg-[#1d1d1f]/80 backdrop-blur-md shadow-lg border border-zinc-200/50 dark:border-zinc-800/50 px-4 md:px-6"
-            : "max-w-[980px] bg-transparent px-6 border-b border-transparent"
+            ? "max-w-[95%] md:max-w-[700px] rounded-2xl md:rounded-full bg-white/80 dark:bg-[#1d1d1f]/80 backdrop-blur-md shadow-lg border border-zinc-200/50 dark:border-zinc-800/50 px-6 md:px-8"
+            : "max-w-[980px] bg-transparent px-8 border-b border-transparent"
         }`}
       >
-        <div className="h-12 flex items-center justify-between text-xs font-medium tracking-wide relative">
+        <div className="h-14 flex items-center justify-between text-xs font-medium tracking-wide relative">
           {/* Logo */}
           <Link
             href="/"
@@ -60,7 +60,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-8 text-[#1d1d1f]/80 dark:text-[#f5f5f7]/80">
+          <div className="hidden md:flex items-center gap-10 text-[#1d1d1f]/80 dark:text-[#f5f5f7]/80">
             {Object.entries(t).map(([key, value]) => {
               // Special handling for portfolio - open external link
               if (key === "portfolio") {
@@ -93,7 +93,7 @@ export default function Navbar() {
               );
             })}
 
-            <div className="flex items-center gap-4 pl-4 border-l border-zinc-200 dark:border-zinc-700">
+            <div className="flex items-center gap-5 pl-6 border-l border-zinc-200 dark:border-zinc-700">
               {/* Theme Toggle */}
               <button
                 onClick={() => {
