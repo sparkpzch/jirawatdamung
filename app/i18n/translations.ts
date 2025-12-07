@@ -14,7 +14,7 @@ export const translations = {
           title: "IEEE 2nd ChatGPT4PCG Competition",
           description:
             "I received 3rd place globally among researchers in the international ChatGPT4PCG Competition, where participants were challenged to design effective AI prompts for research purposes.",
-          link: "https://www.linkedin.com/in/jirawat-damung-023791343/",
+          link: "https://chatgpt4pcg.github.io/",
           linkText: "View Details",
         },
         {
