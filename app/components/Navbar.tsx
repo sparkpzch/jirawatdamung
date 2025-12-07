@@ -61,20 +61,37 @@ export default function Navbar() {
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-8 text-[#1d1d1f]/80 dark:text-[#f5f5f7]/80">
-            {Object.entries(t).map(([key, value]) => (
-              <button
-                key={key}
-                onClick={() => {
-                  const element = document.getElementById(key);
-                  if (element) {
-                    element.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-                className="hover:text-[#0071e3] dark:hover:text-[#2997ff] transition-colors duration-300"
-              >
-                {value}
-              </button>
-            ))}
+            {Object.entries(t).map(([key, value]) => {
+              // Special handling for portfolio - open external link
+              if (key === "portfolio") {
+                return (
+                  <a
+                    key={key}
+                    href="https://www.canva.com/design/DAG617JI80Q/Q070iLzZ1cz9mNI68m2spQ/view?utm_content=DAG617JI80Q&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hade31bcc8b"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#0071e3] dark:hover:text-[#2997ff] transition-colors duration-300"
+                  >
+                    {value}
+                  </a>
+                );
+              }
+              // Regular sections - scroll to element
+              return (
+                <button
+                  key={key}
+                  onClick={() => {
+                    const element = document.getElementById(key);
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                  className="hover:text-[#0071e3] dark:hover:text-[#2997ff] transition-colors duration-300"
+                >
+                  {value}
+                </button>
+              );
+            })}
 
             <div className="flex items-center gap-4 pl-4 border-l border-zinc-200 dark:border-zinc-700">
               {/* Theme Toggle */}
@@ -128,24 +145,42 @@ export default function Navbar() {
         }`}
       >
         <div className="flex flex-col items-center gap-4 text-lg">
-          {Object.entries(t).map(([key, value]) => (
-            <button
-              key={key}
-              onClick={() => {
-                setIsMenuOpen(false);
-                const element = document.getElementById(key);
-                if (element) {
-                  // Small delay to allow menu to close first
-                  setTimeout(() => {
-                    element.scrollIntoView({ behavior: "smooth" });
-                  }, 300);
-                }
-              }}
-              className="text-[#1d1d1f]/80 dark:text-[#f5f5f7]/80 hover:text-[#0071e3] dark:hover:text-[#2997ff] transition-colors duration-300 w-full py-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-xl"
-            >
-              {value}
-            </button>
-          ))}
+          {Object.entries(t).map(([key, value]) => {
+            // Special handling for portfolio - open external link
+            if (key === "portfolio") {
+              return (
+                <a
+                  key={key}
+                  href="https://www.canva.com/design/DAG617JI80Q/Q070iLzZ1cz9mNI68m2spQ/view?utm_content=DAG617JI80Q&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hade31bcc8b"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-[#1d1d1f]/80 dark:text-[#f5f5f7]/80 hover:text-[#0071e3] dark:hover:text-[#2997ff] transition-colors duration-300 w-full py-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-xl"
+                >
+                  {value}
+                </a>
+              );
+            }
+            // Regular sections - scroll to element
+            return (
+              <button
+                key={key}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  const element = document.getElementById(key);
+                  if (element) {
+                    // Small delay to allow menu to close first
+                    setTimeout(() => {
+                      element.scrollIntoView({ behavior: "smooth" });
+                    }, 300);
+                  }
+                }}
+                className="text-[#1d1d1f]/80 dark:text-[#f5f5f7]/80 hover:text-[#0071e3] dark:hover:text-[#2997ff] transition-colors duration-300 w-full py-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-xl"
+              >
+                {value}
+              </button>
+            );
+          })}
 
           <div className="w-full h-px bg-zinc-200 dark:bg-zinc-800 my-2" />
 
