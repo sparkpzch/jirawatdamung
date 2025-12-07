@@ -9,7 +9,7 @@ import { Moon, Sun, Menu, X } from "lucide-react";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
   const { language, toggleLanguage } = useLanguage();
   const [mounted, setMounted] = useState(false);
 
@@ -52,7 +52,11 @@ export default function Navbar() {
             className="text-lg font-semibold tracking-tight cursor-pointer opacity-90 hover:opacity-100 transition-opacity z-50"
             onClick={() => setIsMenuOpen(false)}
           >
-            Jirawat<span className="text-[#86868b]">Damung</span>
+            {language === "th" ? (
+              <>จิรวัฒน์<span className="text-[#86868b]"> ดามัง</span></>
+            ) : (
+              <>Jirawat<span className="text-[#86868b]">Damung</span></>
+            )}
           </Link>
 
           {/* Desktop Links */}
@@ -75,14 +79,17 @@ export default function Navbar() {
             <div className="flex items-center gap-4 pl-4 border-l border-zinc-200 dark:border-zinc-700">
               {/* Theme Toggle */}
               <button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                onClick={() => {
+                  const currentTheme = resolvedTheme || theme;
+                  setTheme(currentTheme === "dark" ? "light" : "dark");
+                }}
                 className="p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
                 aria-label="Toggle Theme"
               >
-                {theme === "dark" ? (
-                  <Sun className="w-4 h-4" />
-                ) : (
+                {(resolvedTheme || theme) === "dark" ? (
                   <Moon className="w-4 h-4" />
+                ) : (
+                  <Sun className="w-4 h-4" />
                 )}
               </button>
 
@@ -92,7 +99,7 @@ export default function Navbar() {
                 className="px-2 py-1 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors font-bold"
                 aria-label="Toggle Language"
               >
-                {language === "en" ? "TH" : "EN"}
+                {language === "en" ? "EN" : "TH"}
               </button>
             </div>
           </div>
@@ -144,14 +151,17 @@ export default function Navbar() {
 
           <div className="flex items-center justify-center gap-8 w-full pb-2">
             <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              onClick={() => {
+                const currentTheme = resolvedTheme || theme;
+                setTheme(currentTheme === "dark" ? "light" : "dark");
+              }}
               className="p-3 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
               aria-label="Toggle Theme"
             >
-              {theme === "dark" ? (
-                <Sun className="w-6 h-6" />
-              ) : (
+              {(resolvedTheme || theme) === "dark" ? (
                 <Moon className="w-6 h-6" />
+              ) : (
+                <Sun className="w-6 h-6" />
               )}
             </button>
 
@@ -160,7 +170,7 @@ export default function Navbar() {
               className="px-4 py-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors font-bold text-lg"
               aria-label="Toggle Language"
             >
-              {language === "en" ? "TH" : "EN"}
+              {language === "en" ? "EN" : "TH"}
             </button>
           </div>
         </div>

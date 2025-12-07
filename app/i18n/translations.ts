@@ -68,7 +68,7 @@ export const translations = {
       subtitle: "Jirawat Damung",
       title: "Work hard in silence\nlet success make the noise.",
       description:
-        "Web Developer. Software Engineer. Game Developer. Constantly eager to explore new challenges.\nQuick learner with strong adaptability.",
+        "Web Developer. Software Developer. Game Developer. Constantly eager to explore new challenges.\nQuick learner with strong adaptability.",
       contact: "Learn more",
     },
     skills: {
@@ -177,9 +177,9 @@ export const translations = {
     },
     hero: {
       subtitle: "จิรวัฒน์ ดามัง",
-      title: "จงทำงานหนักอย่างเงียบๆ \nแล้วปล่อยความสำเร็จเป็นประจักษ์",
+      title: "ตั้งใจทำงานเงียบๆ \nให้ความสำเร็จเป็นคนพูดแทนเรา",
       description:
-        "นักพัฒนาเว็บ. วิศวกรซอฟต์แวร์. นักพัฒนาเกม. \nมีความกระตือรือร้นที่จะเผชิญความท้าทายใหม่ \nเรียนรู้ได้รวดเร็ว และสามารถปรับตัวได้ดี",
+        "นักพัฒนาเว็บ. นักพัฒนาซอฟต์แวร์. นักพัฒนาเกม. \nมีความกระตือรือร้นที่จะเผชิญความท้าทายใหม่ \nเรียนรู้ได้รวดเร็ว และสามารถปรับตัวได้ดี",
       contact: "เพิ่มเติม",
     },
     skills: {
