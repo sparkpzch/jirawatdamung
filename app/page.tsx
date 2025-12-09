@@ -18,7 +18,6 @@ export default function Home() {
     let resizeTimeout: NodeJS.Timeout;
 
     const setupObserver = () => {
-      // Cleanup existing observer
       if (observer) {
         observer.disconnect();
         observer = null;
@@ -41,10 +40,7 @@ export default function Home() {
         },
         {
           root: null,
-          // Increased active area to 40% of viewport height (30% top/bottom margin)
-          // This ensures cards are detected earlier and stay active longer
           rootMargin: "-30% 0px -30% 0px",
-          // Lower threshold to trigger even if card is partially obscured or tall
           threshold: 0.2,
         }
       );
@@ -102,7 +98,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative mt-16 w-full max-w-[1000px] aspect-[16/9] md:aspect-video">
+          <div className="relative mt-16 w-full max-w-[1000px] aspect-video md:aspect-video">
             {/* Main Image with subtle reflection/glow */}
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="relative w-[300px] h-[300px] md:w-[500px] md:h-[500px] transition-transform duration-700 hover:scale-[1.02]">

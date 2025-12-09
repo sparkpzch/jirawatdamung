@@ -3,7 +3,7 @@ export const translations = {
     navbar: {
       experience: "Experience",
       skills: "Skills",
-      portfolio: "Portfolio",
+      resume: "Resume",
       connect: "Connect",
     },
     experience: {
@@ -103,11 +103,11 @@ export const translations = {
         },
       ],
     },
-    portfolio: {
-      title: "Portfolio.",
+    resume: {
+      title: "Resume.",
       subtitle: "My Work.",
       description: "Explore my creative projects and designs.",
-      button: "View Portfolio",
+      button: "View Resume",
     },
     connect: {
       title1: "Let's turn your ideas",
@@ -121,7 +121,7 @@ export const translations = {
     navbar: {
       experience: "ประสบการณ์",
       skills: "ทักษะ",
-      portfolio: "ผลงาน",
+      resume: "ผลงาน",
       connect: "ติดต่อ",
     },
     experience: {
@@ -221,7 +221,7 @@ export const translations = {
         },
       ],
     },
-    portfolio: {
+    resume: {
       title: "ผลงาน",
       subtitle: "งานของผม",
       description: "สำรวจโปรเจกต์และดีไซน์ที่สร้างสรรค์ของผม",

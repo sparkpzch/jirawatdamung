@@ -53,17 +53,20 @@ export default function Navbar() {
             onClick={() => setIsMenuOpen(false)}
           >
             {language === "th" ? (
-              <>จิรวัฒน์<span className="text-[#86868b]"> ดามัง</span></>
+              <>
+                จิรวัฒน์<span className="text-[#86868b]"> ดามัง</span>
+              </>
             ) : (
-              <>Jirawat<span className="text-[#86868b]">Damung</span></>
+              <>
+                Jirawat<span className="text-[#86868b]">Damung</span>
+              </>
             )}
           </Link>
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-10 text-[#1d1d1f]/80 dark:text-[#f5f5f7]/80">
             {Object.entries(t).map(([key, value]) => {
-              // Special handling for portfolio - open external link
-              if (key === "portfolio") {
+              if (key === "resume") {
                 return (
                   <a
                     key={key}
@@ -146,8 +149,7 @@ export default function Navbar() {
       >
         <div className="flex flex-col items-center gap-4 text-lg">
           {Object.entries(t).map(([key, value]) => {
-            // Special handling for portfolio - open external link
-            if (key === "portfolio") {
+            if (key === "resume") {
               return (
                 <a
                   key={key}
@@ -155,7 +157,7 @@ export default function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-[#1d1d1f]/80 dark:text-[#f5f5f7]/80 hover:text-[#0071e3] dark:hover:text-[#2997ff] transition-colors duration-300 w-full py-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-xl"
+                  className="text-[#1d1d1f]/80 dark:text-[#f5f5f7]/80 hover:text-[#0071e3] dark:hover:text-[#2997ff] transition-colors duration-300 w-full py-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-xl text-center"
                 >
                   {value}
                 </a>
@@ -175,7 +177,7 @@ export default function Navbar() {
                     }, 300);
                   }
                 }}
-                className="text-[#1d1d1f]/80 dark:text-[#f5f5f7]/80 hover:text-[#0071e3] dark:hover:text-[#2997ff] transition-colors duration-300 w-full py-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-xl"
+                className="text-[#1d1d1f]/80 dark:text-[#f5f5f7]/80 hover:text-[#0071e3] dark:hover:text-[#2997ff] transition-colors duration-300 w-full py-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-xl text-center"
               >
                 {value}
               </button>
