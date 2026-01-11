@@ -1,15 +1,15 @@
 import type { NextConfig } from "next";
 
-const isProd = process.env.NODE_ENV === "production";
+const rawBasePath = process.env.NEXT_PUBLIC_BASE_PATH;
+const basePath = rawBasePath
+  ? rawBasePath.startsWith("/")
+    ? rawBasePath
+    : `/${rawBasePath}`
+  : undefined;
 
 const nextConfig: NextConfig = {
-  output: "export",
-  images: {
-    unoptimized: true,
-  },
-  // If your repository name is not your-username.github.io, uncomment and set basePath
-  basePath: isProd ? "/jirawatdamung" : undefined,
-  // trailingSlash: true,
+  // Vercel deployment defaults: server-rendered Next.js (no static export)
+  basePath,
 };
 
 export default nextConfig;

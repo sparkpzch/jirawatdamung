@@ -1,5 +1,10 @@
 export const getBasePath = (path: string) => {
-  const isProd = process.env.NODE_ENV === "production";
-  const basePath = isProd ? "/jirawatdamung" : "";
+  const rawBasePath = process.env.NEXT_PUBLIC_BASE_PATH;
+  const basePath = rawBasePath
+    ? rawBasePath.startsWith("/")
+      ? rawBasePath
+      : `/${rawBasePath}`
+    : "";
+
   return `${basePath}${path}`;
 };
