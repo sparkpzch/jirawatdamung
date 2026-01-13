@@ -1,4 +1,4 @@
-name: CI
+name: CI/CD Pipeline - Vercel Deployment
 
 on:
   push:
@@ -12,6 +12,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # TruffleHog
+      - name: TruffleHog Secret Scan
+        uses: trufflesecurity/trufflehog@main
+        continue-on-error: true
+        with:
+          extra_args: --only-verified
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
