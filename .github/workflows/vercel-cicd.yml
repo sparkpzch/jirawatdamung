@@ -33,7 +33,7 @@ jobs:
             - name: Enable Yarn Classic
               run: |
                   corepack enable
-                  corepack prepare yarn@classic --activate
+                  corepack prepare yarn@1.22.22 --activate
 
             - name: Install Dependencies
               run: yarn install --frozen-lockfile
