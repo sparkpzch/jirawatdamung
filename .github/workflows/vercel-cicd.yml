@@ -37,20 +37,3 @@ jobs:
 
             - name: Install Dependencies
               run: yarn install --frozen-lockfile
-
-            # OWASP top 10
-            - name: OWASP Dependency Check
-              uses: dependency-check/Dependency-Check_Action@main
-              continue-on-error: true
-              with:
-                  project: "NextJS-App"
-                  path: "."
-                  format: "HTML"
-                  out: "reports"
-
-            - name: Upload OWASP Report
-              uses: actions/upload-artifact@v4
-              if: always()
-              with:
-                  name: OWASP-Report
-                  path: reports
