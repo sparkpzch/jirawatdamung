@@ -12,8 +12,6 @@ export default function Experience() {
   const { language } = useLanguage();
   const t = translations[language].experience;
 
-  // Map the static experiences to use translated text
-  // We need to preserve the image and color which are not in translations
   const experiences = t.items.map((item, index) => {
     const staticData = [
       {
