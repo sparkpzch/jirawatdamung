@@ -3,7 +3,7 @@ name: CI/CD Pipeline - Vercel Deployment
 on:
   push:
     branches:
-      - "**"
+      - vercel-deploy
   workflow_dispatch:
 
 jobs:
